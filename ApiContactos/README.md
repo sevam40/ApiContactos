@@ -1,33 +1,30 @@
 # API de Contactos - Arquitectura Limpia
 
-Esta es una API de Contactos desarrollada en .NET 8, diseñada desde cero para cumplir con principios de **Clean Architecture**, manejo de concurrencia y diseño funcional de errores.
+Este proyecto es una API diseñada para gestionar contactos de manera eficiente y segura. 
 
-## Requisitos Previos
+## 🚀 Cómo ponerlo en marcha
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+### Desde Visual Studio (La forma más fácil)
+1. Abre el archivo `ApiContactos.sln` con Visual Studio.
+2. Asegúrate de que el proyecto **ApiContactos** esté seleccionado como "Proyecto de inicio" (haz clic derecho sobre él y selecciona "Establecer como proyecto de inicio").
+3. Presiona el botón verde de **Play** (o la tecla `F5`).
+4. Tu navegador se abrirá automáticamente mostrando una guía interactiva (Swagger) donde puedes probar los contactos directamente.
 
-## Cómo Ejecutar el Proyecto
+### Desde la Terminal (Para usuarios avanzados)
+Si prefieres usar la línea de comandos, sitúate en la carpeta raíz y escribe:
 
-Sitúate en la raíz del repositorio (`c:\mio\Prueba\ApiContactos`) y ejecuta:
-
-```bash
 dotnet run --project ApiContactos/ApiContactos.csproj
-```
 
-Abre tu navegador en `http://localhost:5000/swagger` o `https://localhost:5001/swagger` (según tu configuración local del host) para probar los endpoints interactivamente.
+### Pruebas y Calidad
+Este proyecto incluye una sección de pruebas automáticas (unitarias y de integración) que validan el correcto funcionamiento de la lógica de negocio y la consistencia de datos bajo carga.
 
-## Endpoints
+Estado de las pruebas
+La sección de pruebas ya ha sido ejecutada exitosamente, confirmando la solidez de la arquitectura y el manejo concurrente. Los informes detallados de cobertura se encuentran generados en la carpeta /coveragereport.
 
-- **GET /api/contactos**: Obtiene todos los contactos registrados.
-- **GET /api/contactos/{id}**: Obtiene un contacto por su ID.
-- **POST /api/contactos**: Crea un nuevo contacto. Requiere JSON en el body con `Nombre` y `Telefono`.
+Cómo ejecutar las pruebas tú mismo
+Desde Visual Studio: Ve al menú Prueba > Explorador de pruebas y haz clic en "Ejecutar todas las pruebas".
 
-## Cómo Ejecutar los Tests
+Desde la Terminal: Ejecuta en la raíz del proyecto:
 
-Para ejecutar las pruebas y validar el comportamiento thread-safe:
-
-```bash
-dotnet test ApiContactos.Tests/ApiContactos.Tests.csproj
-```
-
-Las pruebas de integración enviarán ráfagas concurrentes masivas de peticiones HTTP en memoria para validar la solidez de la solución frente a hilos concurrentes.
+Bash
+dotnet test

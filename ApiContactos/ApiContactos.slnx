@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ApiContactos.Tests/ApiContactos.Tests.csproj" />
   <Project Path="ApiContactos/ApiContactos.csproj" />
   <Project Path="Application/Application.csproj" />
   <Project Path="Domain/Domain.csproj" />
