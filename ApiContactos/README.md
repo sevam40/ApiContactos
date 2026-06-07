@@ -1,8 +1,6 @@
 # API de Contactos - Arquitectura Limpia
 
-Esta es una API de Contactos desarrollada en .NET 8, cumple con principios de **Clean Architecture**, manejo de concurrencia 
-y diseño funcional de errores.
-
+Esta es una API de Contactos desarrollada en .NET 8, diseñada desde cero para cumplir con principios de **Clean Architecture**, manejo de concurrencia y diseño funcional de errores.
 
 ## Requisitos Previos
 
@@ -10,7 +8,7 @@ y diseño funcional de errores.
 
 ## Cómo Ejecutar el Proyecto
 
-En raíz del repositorio (`c:\mio\Prueba\ApiContactos`)  ejecuta:
+Sitúate en la raíz del repositorio (`c:\mio\Prueba\ApiContactos`) y ejecuta:
 
 ```bash
 dotnet run --project ApiContactos/ApiContactos.csproj

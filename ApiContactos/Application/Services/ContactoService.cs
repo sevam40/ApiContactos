@@ -4,10 +4,14 @@ using Domain.Entities;
 
 namespace Application.Services;
 
+//  Separación de responsabilidades (Clean Architecture).
+// Solo conoce las reglas del negocio 
 public class ContactoService
 {
     private readonly IContactoRepository _repository;
 
+    // Inyección de dependencias: Recibimos la interfaz en lugar de una clase concreta.
+    // Esto hace que nuestro código sea altamente mantenible y fácil de someter a pruebas unitarias (Unit Tests).
     public ContactoService(IContactoRepository repository)
     {
         _repository = repository;
@@ -24,6 +28,8 @@ public class ContactoService
         
         if (contacto is null)
         {
+            // Manejo funcional: Si no existe el registro, devolvemos un mensaje de error claro
+            // y controlado en lugar de dejar que el sistema falle inesperadamente (sin lanzar excepciones).
             return Result.Failure<Contacto>($"No se encontró un contacto con el ID {id}.");
         }
 
@@ -46,7 +52,7 @@ public class ContactoService
             return contactoResult; // Devuelve el error funcional si el nombre o teléfono son inválidos
         }
 
-        // Persistencia (el servicio no sabe si es memoria, SQL, etc.)
+        // Si todas las reglas de negocio son aprobadas, procedemos a guardar el contacto de forma segura.
         var contactoCreado = await _repository.AddAsync(contactoResult.Value);
 
         return Result.Success(contactoCreado);
